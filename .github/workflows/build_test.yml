@@ -1,4 +1,4 @@
-name: Bookeasy Frontend Customers UI (Build & Test)
+name: Bookeasy FE Customers UI (Build & Test)
 
 on:
   push:
@@ -13,8 +13,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      WORKING_DIRECTORY: .
-
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v2
@@ -25,13 +23,14 @@ jobs:
         check-latest: true # Latest version satisfying the above version constraint.
     - name: Install NPM Dependencies
       run: npm install
-      working-directory: ${{env.WORKING_DIRECTORY}}
+      working-directory: .
     - name: Build
       run: npx react-scripts build --watchAll=false
-      working-directory: ${{env.WORKING_DIRECTORY}}
+      working-directory: .
     - name: Test
       run: npx react-scripts test --watchAll=false
-      working-directory: ${{env.WORKING_DIRECTORY}}
+      working-directory: .
     - name: Report Test Coverage
+      working-directory: .
       run: npx react-scripts test --coverage --watchAll=false
       
