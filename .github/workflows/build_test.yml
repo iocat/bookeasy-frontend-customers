@@ -27,8 +27,11 @@ jobs:
       run: npm install
       working-directory: ${{env.WORKING_DIRECTORY}}
     - name: Build
-      run: npx react-scripts build
+      run: npx react-scripts build --watchAll=false
       working-directory: ${{env.WORKING_DIRECTORY}}
     - name: Test
-      run: npx react-scripts test
+      run: npx react-scripts test --watchAll=false
       working-directory: ${{env.WORKING_DIRECTORY}}
+    - name: Report Test Coverage
+      run: npx react-scripts test --coverage --watchAll=false
+      
