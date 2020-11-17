@@ -1,0 +1,7 @@
+{
+  "name": "bookeasy-frontend-customers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
